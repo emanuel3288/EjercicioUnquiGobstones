@@ -1,0 +1,206 @@
+
+program {
+    DibujarPiramideGigante()
+}
+//A-
+procedure DibujarPiramide() {
+    /*
+    Proposito:    -Dibujar piramide de 5 celdas de ancho por 3 de alto.
+    Precondicion: -Deben existir al menos 3 celdas al norte y 4 celdas al este de la celda actual.
+    */
+    DibujarBase()
+    VolverAlInicioDeLaBase()
+    SubirEscalonDePiramide()
+    DibujarMedio()
+    VolverAlInicioDelMedio()
+    SubirEscalonDePiramide()
+    DibujarPunta()
+    IrAlInicioDeLaPiramide()
+}
+
+//B-
+procedure DibujarPiramideInvertida() {
+    /*
+    Proposito:    -Dibujar una piramide invertida de 5 celdas de ancho y 3 de alto.
+    Precondicion: 
+                  -Deben existir al menos 3 celdas al norte y 5 al este de la celda actual.
+                  -Debe contener la base, el medio y la punta de la piramide.
+                  -El cabezal finaliza en la punta de la piramide.
+    */
+    IrAlInicioDeLaPiramideInvertida()
+    DibujarBase()
+    VolverAlInicioDeLaBase()
+    BajarEscalonDePiramide()
+    DibujarMedio()
+    VolverAlInicioDelMedio()
+    BajarEscalonDePiramide()
+    DibujarPunta()
+    IrAlIncioDelTablero()
+}
+
+//d-Piramide gigante
+procedure DibujarPiramideGigante() {
+    /*
+    Proposito:    -Dibujar una piramide gigante de 11 celdas de ancho y 5 de alto.
+    Precondicion: -Deben existir al menos 10 celdas al este y 4 al norte de la celda actual.
+                  -Debe contener 1 piramide invertida y 3 piramides.
+                  -Las celdas deben estar vacias.
+    */
+    DibujarPiramide()
+    IrAlInicioDeLaPuntaDeLaPiramideInvertida()
+    Mover2VecesAlOeste()
+    DibujarPiramideInvertida()
+    Mover3VecesAlEste()
+    DibujarPiramide()
+    IrInicioDeLaPiramideNorte()
+    DibujarPiramide()
+
+}
+
+
+procedure DibujarBase() {
+    /*
+    Proposito:    -Dibujar una base de piramide de 5 celdas de lado.
+    Precondicion: -Deben haber 4 celdas vacias al este del cabezal.
+                  -La celda actual debe estar vacia.
+    */
+    Poner(Rojo)
+    Mover(Este)
+    Poner(Rojo)
+    Mover(Este)
+    Poner(Rojo)
+    Mover(Este)
+    Poner(Rojo)
+    Mover(Este)
+    Poner(Rojo)
+
+}
+procedure SubirEscalonDePiramide() {
+    /*
+    Proposito:    -Posicionar el cabezal al inicio del siguiente escalon.
+    Precondicion: -Deben existir al menos una celda al norte y una al este de la celda actual.
+    */
+    Mover(Este)
+    Mover(Norte)
+}
+procedure DibujarMedio() {
+    /*
+    Proposito:    -Dibujar sector del medio de piramide de 3 celdas de lado.
+    Precondicion: -La celda actual debe estar vacia.
+                  -Debe haber dos celdas vacias al este del cabezal
+    */
+    Poner(Rojo)
+    Mover(Este)
+    Poner(Rojo)
+    Mover(Este)
+    Poner(Rojo)
+}
+
+procedure DibujarPunta() {
+    /*
+    Proposito:    -Dibujar una punta de piramide.
+    Precondicion: -La celda actual debe estar vacia.
+    */
+    Poner(Rojo)
+}
+
+procedure VolverAlInicioDelMedio() {
+    /*
+    Proposito:
+    Precondicion:
+    */
+    Mover(Oeste)
+    Mover(Oeste)
+}
+procedure VolverAlInicioDeLaBase() {
+    /*
+    Proposito:
+    Precondicion:
+    */
+    Mover(Oeste)
+    Mover(Oeste)
+    Mover(Oeste)
+    Mover(Oeste)
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ojo con IrAlBorde() aunque no falle no me alcanza para asegurar que se cumpla la precondicion, debo pedirle como es el tablero.
+procedure IrAlInicioDeLaPiramide() {
+    /*
+    Proposito:    -Posicionar el cabezal en el inicio de la piramide.
+    Precondicion: -Deben existir al menos 2 celdas al oeste y dos al sur de la celda actual.
+    */
+    IrAlBorde(Oeste)
+    IrAlBorde(Sur)
+}
+
+procedure IrAlInicioDeLaPiramideInvertida(){
+    /*
+    Proposito:    -Posicionar el cabezal en el inicio de la base de la piramide.
+    Precondicion: -Debe existir al menos dos celdas al norte de la celda actual.
+    */
+    Mover(Norte)
+    Mover(Norte)
+}
+procedure BajarEscalonDePiramide() {
+    /*
+    Proposito:    -Posicionar el cabezal en el siguiente escalon de la piramide.
+    Precondicion: -Debe existir al menos una celda al sur y otra al este.
+    */
+    Mover(Este)
+    Mover(Sur)
+}
+
+procedure IrAlIncioDelTablero() {
+    /*
+    Proposito:    -Posicionar al cabezal en su celda inicial.
+    Precondicion: -Debe existir al menos 2 celdas al oeste de la celda actual.
+    */
+    Mover(Oeste)
+    Mover(Oeste)
+}
+
+procedure IrInicioDeALaPiramideDelEste() {
+    /*
+    Proposito:    -Posicionar el cabezal en la piramide mas proxima que se encuentra al este.
+    Precondicion: -Debe existir al menos la celda lindante al este.
+    */
+    Mover(Este)
+}
+
+procedure IrInicioDeLaPiramideNorte() {
+    /*
+    Proposito:    -Posicionar el cabezal en el inicio de la piramide norte.
+    Precondicion: -Deben existir al menos 3 celdas al norte y 3 celdas al oeste de la celda actual.
+                  
+    */
+    Mover(Norte)
+    Mover(Norte)
+    Mover(Norte)
+    Mover(Este)
+    Mover(Este)
+    Mover(Este)
+}
+
+procedure IrAlInicioDeLaPuntaDeLaPiramideInvertida() {
+    /*
+    Proposito:
+    Precondicion:
+    */
+    Mover(Este)
+    Mover(Este)
+    Mover(Este)
+    Mover(Este)
+    Mover(Este)
+}
+
+procedure Mover3VecesAlEste() {
+    Mover(Este)
+    Mover(Este)
+    Mover(Este)
+}
+
+procedure Mover2VecesAlOeste() {
+    Mover(Oeste)
+    Mover(Oeste)
+}

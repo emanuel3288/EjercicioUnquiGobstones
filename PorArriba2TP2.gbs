@@ -1,0 +1,75 @@
+program {
+    DibujarRectánguloRojoYNegroDe5x3()
+}
+
+procedure DibujarRectánguloRojoYNegroDe5x3(){
+    /*
+    PROPOSITO: Poner un rectangulo solido de 5 celdas de ancho y 3
+    celdas de alto. Desde la celda actual hacia el Este y hacia el Norte.
+    PRECONDICIONES:
+    * Hay al menos 4 celdas al Este y 2 celdas al Norte de la celda
+    actual.
+    * Las celdas contenidas en el rectangulo de 5x3 desde la celda
+    actual hacia el Este y hacia el Norte estan vacaas.
+    */
+    DibujarLineaRojaYNegraDeTamaño5HaciaElEste()
+    PosicionarEnElInicioDeLaLineaRojaYNegra()
+    Mover4VecesAlOeste()
+    DibujarLineaRojaYNegraDeTamaño5HaciaElEste()
+    PosicionarEnElInicioDeLaLineaRojaYNegra()
+    Mover4VecesAlOeste()
+    DibujarLineaRojaYNegraDeTamaño5HaciaElEste()
+    VolverAlInicioDelRectanguloRojoYNegro()
+}
+
+procedure DibujarLineaRojaYNegraDeTamaño5HaciaElEste() {
+    /*
+    PROPOSITO:    -Dibujar una linea roja y negra horizontal de 5 celdas de ancho.
+    PRECONDICION: -Debe existir al menos una celda al norte de la celda actual.
+                  -Las celdas deben estar vacias.
+    */
+
+    repeat(4) {
+        PonerUnaNegraYUnaRoja()
+        Mover(Este)
+    }
+    PonerUnaNegraYUnaRoja()
+}
+
+procedure PonerUnaNegraYUnaRoja() {
+    /*
+    PROPOSITO:    -Poner una bolita roja y negra en la celda actual.
+    PRECONDICION: -No hay.   
+    */
+    Poner(Rojo)
+    Poner(Negro)
+}
+
+procedure Mover4VecesAlOeste() {
+    /*
+    PROPOSITO:    -Posicionar el cabezal al inicio de la linea roja y negra.
+    PRECONDICION: -Deben existir al menos 4 celdas al oeste de la celda actual.   
+    */
+    repeat(4) {
+        Mover(Oeste)
+    }
+}
+
+procedure PosicionarEnElInicioDeLaLineaRojaYNegra() {
+    /*
+    PROPOSITO:    -Posicionar el cabezal en el inicio de la siguiente linea roja y negra.
+    PRECONDICION: -Debe existir al menos una celda al norte de la celda actual.
+    */
+    Mover(Norte)
+}
+
+procedure VolverAlInicioDelRectanguloRojoYNegro() {
+    /*
+        PROPÓSITO:       -Posicionar el cabezal en el inicio del rectangulo rojo y negro.
+        
+        PRECONDICIONES:  -No hay.
+           
+    */
+    IrAlBorde(Oeste)
+    IrAlBorde(Sur)
+}

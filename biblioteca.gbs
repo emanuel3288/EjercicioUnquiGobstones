@@ -1,0 +1,16 @@
+program {
+
+    
+}
+
+procedure PonerUnaDeCada() {
+    /*
+    PROPOSITO:    -Poner una bolita de cada color en la celda actual. 
+    PRECONDICION: -No hay.
+    */
+    Poner(Rojo)
+    Poner(Negro)
+    Poner(Azul)
+    Poner(Verde)
+
+}

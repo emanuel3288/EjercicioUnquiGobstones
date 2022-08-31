@@ -1,0 +1,67 @@
+
+//En este ejercicio, se usará el tablero para representar un bosque. Cada celda representa a una parcela.
+//Cada bolita verde representa un árbol. Cada bolita roja representa una semilla. Una bolita negra
+//representa una bomba. Una bolita azul representa una unidad de nutrientes.
+
+program {
+
+}
+
+procedure PonerUnaSemilla(){
+    /*
+    PROPOSITO:    -Poner una semilla en la parcela actual.
+    PRECONDICION: -La parcela debe estar vacia.
+    */
+    Poner(Rojo)
+
+}
+
+procedure PonerUnÁrbol() {
+    /*
+    PROPOSITO:    -Poner un arbol en la parcela actual.
+    PRECONDICION: -La parcela debe estar vacia.
+    */
+    Poner(Verde)
+}
+procedure PonerUnaBomba() {
+    /*
+    PROPOSITO:    -Poner una bomba en la parcela actual.
+    PRECONDICION: -La parcela debe estar vacia.
+    */
+    Poner(Negro)
+}
+procedure PonerUnNutriente() {
+    /*
+    PROPOSITO:    -Poner una nutriente en la parcela actual.
+    PRECONDICION: -La parcela debe estar vacia.
+    */
+    Poner(Azul)
+}
+procedure SacarUnaSemilla() {
+    /*
+    PROPOSITO:    -Sacar un nutriente de la parcela actual.
+    PRECONDICION: -Debe existir al menos una semilla en la parcela actual.
+    */
+    Sacar(Rojo)
+}
+procedure SacarUnÁrbol() {
+    /*
+    PROPOSITO:    -Sacar un arbol de la parcela actual.
+    PRECONDICION: -Debe existir al menos un arbol en la parcela actual.
+    */
+    Sacar(Verde)
+}
+procedure SacarUnaBomba() {
+    /*
+    PROPOSITO:    -Sacar una bomba de la parcela actual.
+    PRECONDICION: -Debe existir al menos una bomba en la parcela actual.
+    */
+    Sacar(Negro)
+}
+procedure SacarUnNutriente() {
+    /*
+    PROPOSITO:    -Sacar un nutriente de la parcela actual.
+    PRECONDICION: -Debe existir al menos un nutriente en la parcela actual.
+    */
+    Sacar(Azul)
+}

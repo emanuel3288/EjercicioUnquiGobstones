@@ -1,0 +1,101 @@
+/*9. Reloj Analógico
+Dibujar un reloj analógico de agujas en un tablero cuadriculado puede ser un desafío. Una
+simplificación posible sería representar solamente algunos de los números que aparecen en el mismo:
+el 12 arriba, el 3 a la derecha, el 9 a la izquierda y el 6 abajo.
+Construir un procedimiento DibujarRelojAnalógicoSimplificado(), que ponga los números
+del reloj tal como se indicó, alrededor del casillero actual. El tamaño del reloj será de 2 celdas de
+“radio” (suponiendo que miramos al reloj como un círculo).
+InPr - P2. Procedimientos y Estrategias de Solución
+Utilizar el comando DibujarRelojAnalógicoSimplificado() en un tablero inicial vacío de 5x5
+con la celda inicial en el centro del mismo, */
+
+program {
+    DibujarRelojAnalógicoSimplificado()
+}
+
+procedure DibujarRelojAnalógicoSimplificado() {
+    /*
+    PROPOSITO:    -Dibujar reloj analogico de 5 celdas de lado con su cabezal en el centro del mismo.
+    PRECONDICION: -Deben existir al menos 5 celdas de lado.
+                  -Las celdas deben estar vacias.
+    */
+    DibujarHora3AlEsteY9AlOeste()
+    IrAlCentroDelRelojAnalogicoViniendoDelOeste()
+    DibujarHora6AlSurY12AlNorte()
+    IrAlCentroDelRelojAnalogicoViniendoDelNorte()
+}
+
+procedure DibujarHora3AlEsteY9AlOeste(){
+    /*
+    PROPOSITO:    -Dibujar el horario 3 al este y 9 al oeste en el reloj analogico.
+    PRECONDICION: -Las celdas deben estar vacias.
+    */
+    IrAlBorde(Este)
+    DibujarLaHora3()
+    IrAlBorde(Oeste)
+    DibujarLaHora9()
+}
+procedure IrAlCentroDelRelojAnalogicoViniendoDelOeste(){
+    /*
+    PROPOSITO:    -Posicionar el cabezal en el centro del reloj analogico.
+    PRECONDICION: -Deben existir al menos 2 celdas al este de la celda actual.
+    */
+    repeat(2) {
+        Mover(Este)
+    }
+}
+procedure DibujarHora6AlSurY12AlNorte(){
+    /*
+    PROPOSITO:    -Dibujar el horario 6 al este y 12 al oeste en el reloj analogico.
+    PRECONDICION: -Las celdas deben estar vacias.
+    */
+    IrAlBorde(Sur)
+    DibujarLaHora6()
+    IrAlBorde(Norte)
+    DibujarLaHora12()
+}
+procedure IrAlCentroDelRelojAnalogicoViniendoDelNorte(){
+    /*
+    PROPOSITO:    -Posicionar el cabezal en el centro del reloj analogico.
+    PRECONDICION: -Deben existir al menos 2 celdas al sur de la celda actual.
+    */
+    repeat(2) {
+        Mover(Sur)
+    }
+}
+procedure DibujarLaHora12(){
+    /*
+    PROPOSITO:    -Dibujar la hora 12 en el reloj analogico.
+    PRECONDICION: -La celda actual estar vacia.
+    */
+    repeat(12) {
+        Poner(Rojo)
+    }
+}
+procedure DibujarLaHora9(){
+    /*
+    PROPOSITO:    -Dibujar la hora 9 en el reloj analogico.
+    PRECONDICION: -La celda actual estar vacia.
+    */
+    repeat(9) {
+        Poner(Rojo)
+    }
+}
+procedure DibujarLaHora6(){
+    /*
+    PROPOSITO:    -Dibujar la hora 6 en el reloj analogico.
+    PRECONDICION: -La celda actual estar vacia.
+    */
+    repeat(6) {
+        Poner(Rojo)
+    }
+}
+procedure DibujarLaHora3(){
+    /*
+    PROPOSITO:    -Dibujar la hora 3 en el reloj analogico.
+    PRECONDICION: -La celda actual estar vacia.
+    */
+    repeat(3) {
+        Poner(Rojo)
+    }
+}

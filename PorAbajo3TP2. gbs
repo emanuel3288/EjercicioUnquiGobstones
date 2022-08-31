@@ -1,0 +1,77 @@
+//En este caso usare la metodologia bottom-up------------------------------------------
+program {
+    DibujarCuadradoMulticolorDeLado4()
+}
+
+procedure PonerUnaDeCada() {
+    /*
+    PROPOSITO:    -Poner una bolita de cada color en la celda actual. 
+    PRECONDICION: -No hay.
+    */
+    Poner(Rojo)
+    Poner(Negro)
+    Poner(Azul)
+    Poner(Verde)
+}
+
+procedure Mover3VecesAlOeste() {
+    /*
+    PROPOSITO:    -Mover el cabezal tres celdas al oeste de la posicion actual. 
+    PRECONDICION: -Deben existir al menos 3 celdas al oeste de la celda actual.
+    */
+    repeat(3) {
+        Mover(Oeste)
+    }
+}
+
+
+
+
+
+procedure DibujarLíneaMulticolorDeLargo4() {
+    /*
+    PROPOSITO:    -Dibujar una linea multicolor de largo 4. 
+    PRECONDICION: -Deben existir al menos 3 celdas al este de la celda actual.
+    */
+    PonerUnaDeCada()
+    Mover(Este)
+    PonerUnaDeCada()
+    Mover(Este)
+    PonerUnaDeCada()
+    Mover(Este)
+    PonerUnaDeCada()
+    Mover3VecesAlOeste()
+}
+
+procedure IrASiguienteLineaMulticolorDeLargo4() {
+    /*
+    PROPOSITO:    -Posicionar el cabezal en la siguiente linea multicolor. 
+    PRECONDICION: -Debe existir al menos una celda al norte de la celda actual.
+    */
+    Mover(Norte)
+}
+
+procedure VolverAlIncioDelCuadrado() {
+    /*
+    PROPOSITO:    -Posicionar el cabezal al inicio del cuadrado multicolor. 
+    PRECONDICION: -No hay.
+    */
+    IrAlBorde(Oeste)
+    IrAlBorde(Sur)
+}
+
+procedure DibujarCuadradoMulticolorDeLado4() {
+    /*
+    PROPOSITO:    -Dibujar cuadrado solido multicolor de 4 celdas de ancho y 4 de alto. 
+    PRECONDICION: -Deben existir al menos 3 celdas al norte y 3 al este.
+                  -Contiene lineas multicolor de largo 4.
+    */
+    DibujarLíneaMulticolorDeLargo4()
+    IrASiguienteLineaMulticolorDeLargo4()
+    DibujarLíneaMulticolorDeLargo4()
+    IrASiguienteLineaMulticolorDeLargo4()
+    DibujarLíneaMulticolorDeLargo4()
+    IrASiguienteLineaMulticolorDeLargo4()
+    DibujarLíneaMulticolorDeLargo4()
+    VolverAlIncioDelCuadrado()
+}

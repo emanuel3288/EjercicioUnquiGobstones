@@ -1,0 +1,202 @@
+program {
+    
+    DibujarInicialesDelNombreYApellido()
+
+    
+}
+
+// Ejercicio 1 Tp2
+
+procedure DibujarInicialesDelNombreYApellido(){
+    /*
+    PROPÓSITO:    -Dibujar las iniciales del nombre y el apellido en la posicion actual.
+    PRECONDICIÓN: -Deben existir al menos 5 celdas al norte y 9 al este de la celda actual.
+                  -Las celdas del tablero deben estar vacias.
+    */
+    
+    DibujarInicialDelNombre()
+    IrAlInicioDeLaInicialDelApellido()
+    DibujarInicialDelApellido()
+    VolverAlInicio()
+    
+}
+
+//1-DIBUJA LA INICIAL DEL NOMBRE
+procedure DibujarInicialDelNombre() {
+    /*
+    PROPÓSITO:    -Dibujar la inicial del nombre en la posición actual.
+    PRECONDICIÓN: -Deben existir al menos 4 celdas al norte y 3 celdas al este de la celda actual.
+                  -Las celdas deben estar vacias.
+                      
+    */
+    
+    IrAlIncioDeLaPrimeraLineaHorizontalVerde()
+    DibujarLineaHorizontalVerdeDeLargo3()
+    PosicionarAlIncioDeLaLineaHorizontalVerde()
+    DibujarLineaHorizontalVerdeDeLargo3()
+    PosicionarAlIncioDeLaLineaHorizontalVerde()
+    DibujarLineaHorizontalVerdeDeLargo3()
+    PosicionarAlInicioDeLaLineaVerticalVerde5()
+    DibujarLineaVerticalVerdeDeLargo5()
+    
+}
+
+procedure IrAlIncioDeLaPrimeraLineaHorizontalVerde() {
+    /*
+    PROPÓSITO:   -Posicionar a el cabezal al inicio de la primera linea horizontal verde de la inicial del nombre.
+    PRECONDICIÓN:-Debe exisitir al menos la celda lindante al este.
+    */
+    Mover(Este)
+}
+
+
+procedure DibujarLineaHorizontalVerdeDeLargo3() {
+    /*
+    PROPÓSITO:    -Dibujar una linea horizontal verde de largo tres.
+    PRECONDICIÓN: -Deben existir al menos 3 celdas al este de la celda actual.
+                  -Las celdas deben estar vacias.
+                  -Debe estar contenida en la inicial del nombre.
+    */
+    repeat(3) {
+        Poner(Verde)
+        Mover(Este)
+    }
+    
+}
+
+procedure PosicionarAlIncioDeLaLineaHorizontalVerde() {
+    /*
+    PROPÓSITO:     -Posicionar el cabezal dos celdas al norte en el inicio de la linea horizontal verde.
+    PRECONDICIÓN:  -Deben existir al menos dos celdas al norte de la celda actual.
+    */
+    repeat(3) {
+        
+        Mover(Oeste)
+        
+    }
+    Mover(Norte)
+    Mover(Norte)
+    
+}
+
+procedure PosicionarAlInicioDeLaLineaVerticalVerde5() {
+    /*
+    PROPÓSITO:    -Posicionar el cabezal al inicio de la linea vertical verde de largo 5.
+    PRECONDICIÓN: -No hay.
+    */
+    IrAlBorde(Oeste)
+}
+
+procedure DibujarLineaVerticalVerdeDeLargo5() {
+    /*
+    PROPÓSITO:    -Dibujar la linea vertical verde de largo 5 de la inicial del nombre.
+    PRECONDICIÓN: -Deben existir al menos 4 celdas al sur de la celda actual.
+                  -La celdas deben estar vacías.
+    */
+    repeat(4) {
+        
+        Poner(Verde)
+        Mover(Sur)
+    }
+    Poner(Verde)
+}
+
+
+//2-VA AL INICIO DE LA SIGUIENTE INICIAL
+procedure IrAlInicioDeLaInicialDelApellido() {
+    /*
+    PROPÓSITO:    -Posicionar el cabezal al inicio de la inicial del apellido.
+    PRECONDICIÓN: -Deben existir al menos 4 celdas al este de la celda actual.
+    */
+    repeat(8) {
+        
+        Mover(Este)
+    
+    }
+}
+
+//3-Dibuja la inicial del apellido
+procedure DibujarInicialDelApellido() {
+    DibujarLineaHorizontalRojaDeLargo3()
+    PasarALaSiguienteLineaHorizontalRoja()
+    VolverAlIncioDeLaLineaDeLaHorizontalRojaDeLargo3()
+    DibujarLineaHorizontalRojaDeLargo3()
+    IrAlInicioDeLaLineaVerticalRoja3()
+    DibujarLineaVerticalRojaDeAlto3()
+    VolverAlInicio()
+    
+}
+
+procedure DibujarLineaHorizontalRojaDeLargo3() {
+    /*
+    PROPÓSITO:    -Dibujar una linea horizontal de largo 3 en la posicion actual.
+    PRECONDICIÓN: -Deben existir al menos 2 celdas al oeste de la celda actual.
+                  -Las celdas deben estar vacías.
+    */
+    repeat(3) {
+        Poner(Rojo)
+        Mover(Oeste)
+    }
+    
+}
+
+procedure PasarALaSiguienteLineaHorizontalRoja() {
+    /*
+    PROPÓSITO:    -Posicionar el cabezal en el inicio de la siguiente linea horizonal roja.
+    PRECONDICIÓN: -Deben existir al menos 4 celdas al norte de la celda actual.
+                  -Las celdas deben estar vacías.
+    */
+    repeat(4) {
+        
+        Mover(Norte)
+        
+    }
+    
+}
+
+procedure VolverAlIncioDeLaLineaDeLaHorizontalRojaDeLargo3() {
+    /*
+    PROPÓSITO:    -Posicionar el cabezal al inicio de la linea horizontal roja de largo tres.
+    PRECONDICIÓN: -Deben existir al menos 3 celdas al este de la celda actual.
+    */
+    repeat(3) {
+        
+        Mover(Este)
+        
+    }
+    
+}
+
+ 
+
+procedure IrAlInicioDeLaLineaVerticalRoja3() {
+    /*
+    PROPÓSITO:    -Posicionar el cabezal al inicio de la linea vertical roja de alto tres.
+    PRECONDICIÓN: -Debe existir al menos un celda al sur de la celda actual.
+    */
+    Mover(Sur)
+}
+
+procedure DibujarLineaVerticalRojaDeAlto3() {
+    /*
+    PROPÓSITO:    -Posicionar el cabezal al inicio de la linea horizontal roja de largo tres.
+    PRECONDICIÓN: -Deben existir al menos 3 celdas al sur de la celda actual.
+                  -Las celdas deben estar vacias.
+                  -Debe estar contenida en la inicial del apellido.
+    */          
+    repeat(3) {
+        Poner(Rojo)
+        Mover(Sur)
+    }
+    
+}
+
+//4-VUELVE AL INICIO DEL TABLERO
+procedure VolverAlInicio() {
+    /*
+    PROPÓSITO:   -Volver al inicio del tablero.
+    PRECONDICIÓN:-no hay.
+    */
+    IrAlBorde(Oeste)
+    
+}

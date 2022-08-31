@@ -1,0 +1,118 @@
+
+//Construir un procedimiento PonerGuardaDe5Azulejos(), que arme una “guarda” de 5 azulejos
+//(como las que decoran las paredes). Cada azulejo está conformado por 1 bolita verde, 5 negras y 9
+//rojas.
+
+program {
+    PonerGuardaEnL()
+}
+procedure PonerGuardaEnL() {
+    /*
+    PROPOSITO:    -Poner una guarda de 5 azulejos de ancho.
+    PRECONDICION:
+    */
+    IrAlInicioDeLaLineaVerticalDeAzulejos()
+    PonerLineaVerticalDeAzulejosDeAltoDe3()
+    IrAInicioALineaHorizontalDeAzulejos()
+    PonerHorizontalDeAzulejosDe2()
+    VolverAlInicioDeLaGuarda()
+}
+
+procedure IrAlInicioDeLaLineaVerticalDeAzulejos() {
+    /*
+    PROPOSITO:    -Posicionar el cabezal al inicio de la linea vertical de azulejos.
+    PRECONDICION: -Deben existir al menos 2 celdas al norte de la celda actual.
+    */
+    repeat(2) {
+        Mover(Norte)
+    }
+}
+
+procedure PonerLineaVerticalDeAzulejosDeAltoDe3() {
+    /*
+    PROPOSITO:    -Poner una linea vertical de azulejos.
+    PRECONDICION: -Las celdas deben estar vacias.
+                  -Deben existir al menos 2 celdas al norte de la celda actual.
+    */
+    PonerAzulejoDeLaGuarda()
+    IrAlSiguienteAzulejoAlSur()
+    PonerAzulejoDeLaGuarda()
+    IrAlSiguienteAzulejoAlSur()
+    PonerAzulejoDeLaGuarda()
+    
+}
+
+procedure IrAInicioALineaHorizontalDeAzulejos() {
+    /*
+    PROPOSITO:    -Posicionar el cabezal en el inicio de la linea horizontal de azulejos.  
+    PRECONDICION: -Debe existir al menos la celda lindante al este de la celda actual.
+    */
+    Mover(Este)
+}
+
+
+procedure PonerHorizontalDeAzulejosDe2() {
+    /*
+    PROPOSITO:     -Poner una linea horizontal de dos azulejos.
+    PRECONDICION:  -Las celdas deben estar vacias.
+    */
+    repeat(2) {
+        PonerAzulejoDeLaGuarda()
+        Mover(Este)
+    }
+}
+
+
+procedure PonerAzulejoDeLaGuarda() {
+    /*
+    PROPOSITO:     -Poner azulejo para la guarda en la posicion actual.
+    PRECONDICION:  -La celda debe estar vacia.
+    */
+    Poner(Verde)
+    Poner9Rojas()
+    Poner5Negras()
+}
+
+
+
+procedure Poner9Rojas() {
+    /*
+    PROPOSITO:     -Poner 9 bolitas rojas en la celda actual.
+    PRECONDICION:  -No hay.
+    */
+    repeat(9) {
+        Poner(Rojo)
+    }
+}
+procedure Poner5Negras() {
+    /*
+    PROPOSITO:     -Poner 5 bolitas negras en la celda actual.
+    PRECONDICION:  -No hay.
+    */
+    repeat(5) {
+        Poner(Negro)
+    }
+}
+procedure IrAlSiguienteAzulejoAlSur() {
+    /*
+    PROPOSITO:     -Ir a la posicion de siguiente azulejo de la guarda.
+    PRECONDICION:  -Debe existir al menos una celda al este de la celda actual.
+    */
+    Mover(Sur)
+}
+
+procedure IrAlSiguienteAzulejoAlEste() {
+    /*
+    PROPOSITO:     -Ir a la posicion de siguiente azulejo de la guarda.
+    PRECONDICION:  -Debe existir al menos una celda al este de la celda actual.
+    */
+    Mover(Este)
+}
+
+procedure VolverAlInicioDeLaGuarda() {
+    /*
+    PROPOSITO:     -Posicionar el cabezal en el inicio de la guarda de azulejos.
+    PRECONDICION:  -No hay.
+    */
+    IrAlBorde(Oeste)
+}
